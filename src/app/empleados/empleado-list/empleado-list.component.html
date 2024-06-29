@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-end" style="margin-right: 180px;">
+    <button (click)="toggleTableVisibility()" class="btn btn-primary mb-3 mt-3">
+      {{ tableVisible ? 'Ocultar Tabla' : 'Mostrar Tabla' }}
+    </button>
+  </div>
+  
+  <div *ngIf="tableVisible" class="d-flex justify-content-center">
+    <div class="table-responsive w-75">
+      <table class="table table-striped table-bordered shadow-sm">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Fecha Nac</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empleado of empleados; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.correo }}</td>
+            <td>{{ empleado.telefono }}</td>
+            <td>{{ empleado.fechaNacimiento }}</td>
+            <td><button (click)="deleteEmpleado(i)" class="btn btn-danger btn-sm">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
